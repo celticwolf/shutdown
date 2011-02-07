@@ -7,9 +7,11 @@ Why
 ===
 
 Windows XP and newer versions all come with a native shutdown utiltity. Why create a new one that does the same thing? We had a couple of reasons.
+
 Windows 2000
 
 There are still Windows 2000 workstations and servers out there, and we have to deal with them until they're retired. There is no shutdown utility included with a stock installation of Windows 2000, though you can get one from the Windows 2000 Resource Kit. Of course, that only helps if the resource kit is or can be installed. When considering how to handle this issue, we looked around for alternatives, but all of them were closed source. We aren't comfortable installing closed source utilities from random web-sites on our clients' systems. Most of them are probably safe, but it only takes one to infect a client's entire network with malware. We didn't find an open source utility, so we decided to write one.
+
 The Native Utility Can Be Unfriendly
 
 While the native utility provided by Microsoft has lots of features, it can be a bit unfriendly. For example, the only way to specify a delay between when the command is issued and when the shutdown occurs is to specify the number of seconds. If you want anything more than a trivial delay, grab the calculator. The GNU utility, in contrast, allows you to specify the time using more friendly formats:
