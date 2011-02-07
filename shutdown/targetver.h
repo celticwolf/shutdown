@@ -1,3 +1,8 @@
+// Copyright 2011 Celtic Wolf, Inc.  All rights reserved.
+//
+// This software is licensed under the terms of the GNU GPL version 2.  See
+// http://www.gnu.org/licenses/gpl-2.0.html for a copy of the license.
+
 #pragma once
 
 // The following macros define the minimum required platform.  The minimum required platform
