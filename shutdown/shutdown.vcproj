@@ -85,6 +85,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy &quot;$(InputDir)ReadMe.txt&quot; &quot;$(SolutionDir)README&quot;"
 			/>
 		</Configuration>
 		<Configuration
@@ -159,6 +160,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy &quot;$(InputDir)ReadMe.txt&quot; &quot;$(SolutionDir)README&quot;"
 			/>
 		</Configuration>
 	</Configurations>

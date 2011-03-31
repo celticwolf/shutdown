@@ -1,0 +1,6 @@
+.svn
+*.ncb
+*.suo
+*.user
+zipexe.bat
+zipsource.bat
