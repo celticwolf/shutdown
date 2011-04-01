@@ -47,8 +47,8 @@ void CheckGetLastError(BOOL res, LPTSTR lpError, bool &ret);
 bool EnsurePrivileges(argstype &args);
 bool Logoff(argstype &args);
 bool ParseArgs(int argc, _TCHAR* argv[], argstype *pargs);
-DWORD ParseReason(const _TCHAR const *pszReason);
-time_t ParseTime(const _TCHAR const *pszTime);
+DWORD ParseReason(const _TCHAR* const pszReason);
+time_t ParseTime(const _TCHAR* const pszTime);
 void split(const tstring &s, _TCHAR delim, std::vector<tstring> &elems);
 bool Shutdown(argstype &args);
 void Syntax();
@@ -447,7 +447,7 @@ bool EnsurePrivileges(argstype &args)
 **
 ** Returns: the reason code or -1 for failure.
 *******************************************************************************/
-DWORD ParseReason(const _TCHAR const *pszReason)
+DWORD ParseReason(const _TCHAR* const pszReason)
 {
 	DWORD ret = 0;
 	std::vector<tstring> elems;
@@ -501,9 +501,9 @@ DWORD ParseReason(const _TCHAR const *pszReason)
 **
 ** Returns: the number of seconds delay before the action is taken
 *******************************************************************************/
-time_t ParseTime(const _TCHAR const *pszTime)
+time_t ParseTime(const _TCHAR* const pszTime)
 {
-	const TCHAR const *pColon = _tcsstr(pszTime, _T(":"));
+	const TCHAR* const pColon = _tcsstr(pszTime, _T(":"));
 	time_t now = time(NULL);
 
 	// If they specified the string "now"
@@ -513,7 +513,7 @@ time_t ParseTime(const _TCHAR const *pszTime)
 	// If they specified a string containing minutes
 	else if (static_cast<_TCHAR>(pszTime[0]) == _T('+'))
 	{
-		return 60L * _tstol(++pszTime);
+		return 60L * _tstol(pszTime + 1);
 	}
 
 	// If they specified the hh:mm format
@@ -525,7 +525,7 @@ time_t ParseTime(const _TCHAR const *pszTime)
 		long diff = pColon - pszTime;
 		long size = (diff / sizeof(TCHAR)) + 1;
 		errno_t err = _tcsncpy_s(szHours, HOURS_BUF_SIZE, pszTime, ((pColon - pszTime) / sizeof(TCHAR)) + 1);
-		int mins = _tstol(++pColon);
+		int mins = _tstol(pColon + 1);
 		int hours = _tstol(szHours);
 
 		// Get the current time

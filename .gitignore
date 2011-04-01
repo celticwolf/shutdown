@@ -2,5 +2,6 @@
 *.ncb
 *.suo
 *.user
+Debug
 zipexe.bat
 zipsource.bat
